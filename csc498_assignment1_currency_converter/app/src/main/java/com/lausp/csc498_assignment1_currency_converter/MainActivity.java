@@ -7,13 +7,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
      EditText addAmount;
-     TextView result;
+     private TextView result;
+     int amount;
      Button convertToLBP;
      Button convertToDollars;
-     int results;
+     double results;
+
 
 
 
@@ -22,19 +25,40 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         addAmount = (EditText) findViewById(R.id.first);
+
+
+        results =0;
         result = (TextView) findViewById(R.id.result);
-        convertToLBP = (Button) findViewById(R.id.button2);
-        convertToDollars = (Button) findViewById(R.id.button3);
-
-
 
     }
-    public void convertLbp(View v){
-       int amount =  Integer.parseInt(addAmount.getText().toString());
+
+
+    public void convertToLBP(View v){
+        int amount =  Integer.parseInt(addAmount.getText().toString());
         results = amount * 22000;
-        
+        String m =String.valueOf(results);
+        result.setText(m);
+        Toast.makeText(getApplicationContext(), "lbp", Toast.LENGTH_SHORT).show();
 
 
 
     }
+    public void convertToDollars(View v){
+        double amount =  Integer.parseInt(addAmount.getText().toString());
+        results = ((amount )/ 22000);
+        String m1 =String.valueOf(results);
+        result.setText(m1);
+        Toast.makeText(getApplicationContext(), "$$", Toast.LENGTH_SHORT).show();
+
+
+
+    }
+
+
+
+
+
+
+
+
 }
