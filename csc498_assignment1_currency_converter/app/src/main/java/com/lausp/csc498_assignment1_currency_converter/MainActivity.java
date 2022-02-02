@@ -36,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
     public void convertToLBP(View v){
         int amount =  Integer.parseInt(addAmount.getText().toString());
         results = amount * 22000;
-        String m =String.valueOf(results);
-        result.setText(m);
+        String m =(String.valueOf(results))+ "LBP";
+        result.setText(m) ;
         Toast.makeText(getApplicationContext(), "lbp", Toast.LENGTH_SHORT).show();
 
 
@@ -46,14 +46,16 @@ public class MainActivity extends AppCompatActivity {
     public void convertToDollars(View v){
         double amount =  Integer.parseInt(addAmount.getText().toString());
         results = ((amount )/ 22000);
-        String m1 =String.valueOf(results);
+        String m1 =(String.valueOf(results)) + "USD";
         result.setText(m1);
         Toast.makeText(getApplicationContext(), "$$", Toast.LENGTH_SHORT).show();
 
 
 
     }
-
+/* add conditions
+* fix design
+* double usd only 2 decimals*/
 
 
 
