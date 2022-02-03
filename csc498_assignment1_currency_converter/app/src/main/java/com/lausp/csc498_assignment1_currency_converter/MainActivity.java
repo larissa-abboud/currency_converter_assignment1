@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     public void convertToDollars(View v){
         double amount =  Integer.parseInt(addAmount.getText().toString());
         results = ((amount )/ 22000);
-        String m1 =(String.valueOf(results)) + "USD";
+        String m1 =(String.format("%.2f",results)) + "USD";
         result.setText(m1);
         Toast.makeText(getApplicationContext(), "$$", Toast.LENGTH_SHORT).show();
 
