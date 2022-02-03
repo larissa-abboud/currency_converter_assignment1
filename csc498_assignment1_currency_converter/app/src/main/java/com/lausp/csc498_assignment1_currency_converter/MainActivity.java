@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+// add button to specify if lbp or usd (boolean )
     public void convertToLBP(View v){
         int amount =  Integer.parseInt(addAmount.getText().toString());
         results = amount * 22000;
