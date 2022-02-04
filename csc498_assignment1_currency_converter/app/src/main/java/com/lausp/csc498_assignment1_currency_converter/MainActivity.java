@@ -71,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
             int amount = Integer.parseInt(addAmount.getText().toString());
             results = amount * 22000;
             String m = (String.valueOf(results)) + " LBP";
-            money_bag.animate().alpha(0).setDuration(2000);
-            
+            money_bag.animate().alpha(0).setDuration(100);
+
             result.setText(m);
             Toast.makeText(getApplicationContext(), "successfully converted to lbp", Toast.LENGTH_SHORT).show();
 
@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         else{
             Toast.makeText(getApplicationContext(), "invalid input", Toast.LENGTH_SHORT).show();
         }
+        money_bag.animate().alpha(1).setDuration(50);
     }
 
     public void convertToDollars(View v){
