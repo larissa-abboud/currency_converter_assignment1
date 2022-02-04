@@ -12,13 +12,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-     EditText addAmount;
-     private TextView result;
-     int amount;
-     Button convertToLBP;
-     Button convertToDollars;
-     double results;
-     ImageView money_bag;
+    EditText addAmount;
+    private TextView result;
+    int amount;
+    Button convertToLBP;
+    Button convertToDollars;
+
+    double results;
+    ImageView money_bag;
 
 
 
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
+
     public boolean isDouble(String n){
         if (n == null)
             return false;
@@ -63,6 +65,9 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
+
+
+
     // add button to specify if lbp or usd (boolean )
     public void convertToLBP(View v) {
         //boolean flag  ;
@@ -71,17 +76,23 @@ public class MainActivity extends AppCompatActivity {
             int amount = Integer.parseInt(addAmount.getText().toString());
             results = amount * 22000;
             String m = (String.valueOf(results)) + " LBP";
-            money_bag.animate().alpha(0).setDuration(100);
+            money_bag.animate().alpha(0).setDuration(50);
+
 
             result.setText(m);
+            addAmount.setText("");
             Toast.makeText(getApplicationContext(), "successfully converted to lbp", Toast.LENGTH_SHORT).show();
 
         }
         else{
             Toast.makeText(getApplicationContext(), "invalid input", Toast.LENGTH_SHORT).show();
         }
+        //
+    }
+    public void show(View v) {
         money_bag.animate().alpha(1).setDuration(50);
     }
+
 
     public void convertToDollars(View v){
         String given = addAmount.getText().toString();
@@ -89,7 +100,9 @@ public class MainActivity extends AppCompatActivity {
             double amount = Double.parseDouble(addAmount.getText().toString());
             results = ((amount) / 22000);
             String m1 = (String.format("%.2f", results)) + " USD";
+            money_bag.animate().alpha(0).setDuration(50);
             result.setText(m1);
+            addAmount.setText("");
             Toast.makeText(getApplicationContext(), "successfully converted to $$", Toast.LENGTH_SHORT).show();
         }
         else{
@@ -98,10 +111,11 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     }
-/* add conditions
-* fix design
-* double usd only 2 decimals*/
+    /* add conditions
+     * fix design
+     * double usd only 2 decimals*/
 
 
 
