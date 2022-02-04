@@ -2,7 +2,6 @@ package com.lausp.csc498_assignment1_currency_converter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    EditText addAmount;
+    EditText addAmount1;
     private TextView result;
     int amount;
     Button convertToLBP;
@@ -20,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     double results;
     ImageView money_bag;
+    EditText addAmount2;
 
 
 
@@ -29,14 +29,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        addAmount = (EditText) findViewById(R.id.first);
+        addAmount1 = (EditText) findViewById(R.id.first);
         money_bag = (ImageView) findViewById(R.id.moneyBag);
-
+        addAmount2 = (EditText) findViewById(R.id.second);
 
         results =0;
         result = (TextView) findViewById(R.id.result);
 
     }
+    public void reset(View v){
+        addAmount2.setText("");
+        addAmount1.setText("");
+
+
+        show(v);
+    }
+
 
     public boolean isInt(String n){
         if (n == null)
@@ -67,20 +75,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
+/** user inputs in dollar box, and presses dollar should show same amount
+ * user input dollar an d preses the  lbp amount  should show  calculated amount
+ * */
     // add button to specify if lbp or usd (boolean )
     public void convertToLBP(View v) {
         //boolean flag  ;
-        String given = addAmount.getText().toString();
+        String given = addAmount1.getText().toString();
         if (isInt(given)) {
-            int amount = Integer.parseInt(addAmount.getText().toString());
+            int amount = Integer.parseInt(addAmount1.getText().toString());
             results = amount * 22000;
-            String m = (String.valueOf(results)) + " LBP";
+            String m = (String.valueOf(results)) ;
             money_bag.animate().alpha(0).setDuration(25);
-
-
+            addAmount2.setText(m);
             result.setText(m);
-            addAmount.setText("");
+            addAmount1.setText("");
             Toast.makeText(getApplicationContext(), "successfully converted to lbp", Toast.LENGTH_SHORT).show();
 
         }
@@ -97,14 +106,17 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void convertToDollars(View v){
-        String given = addAmount.getText().toString();
+        String given = addAmount2.getText().toString();
         if (isDouble(given)) {
-            double amount = Double.parseDouble(addAmount.getText().toString());
+            double amount = Double.parseDouble(addAmount2.getText().toString());
             results = ((amount) / 22000);
-            String m1 = (String.format("%.2f", results)) + " USD";
+            String m1 = (String.format("%.2f", results)) ;
             money_bag.animate().alpha(0).setDuration(25);
+            addAmount1.setText(m1);
             result.setText(m1);
-            addAmount.setText("");
+            addAmount2.setText("");
+
+
             Toast.makeText(getApplicationContext(), "successfully converted to $$", Toast.LENGTH_SHORT).show();
         }
         else{
