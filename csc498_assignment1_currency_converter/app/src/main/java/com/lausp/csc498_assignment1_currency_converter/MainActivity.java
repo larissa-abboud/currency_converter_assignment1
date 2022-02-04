@@ -34,10 +34,11 @@ public class MainActivity extends AppCompatActivity {
 
 // add button to specify if lbp or usd (boolean )
     public void convertToLBP(View v){
-        boolean flag =false ;
+        boolean flag  ;
 
  try{
      int amount =  Integer.parseInt(addAmount.getText().toString());
+     flag = false;
  }
      catch (NumberFormatException e) {
      flag  = true;
