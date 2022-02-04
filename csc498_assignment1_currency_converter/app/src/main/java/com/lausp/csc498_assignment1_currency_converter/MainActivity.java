@@ -31,30 +31,35 @@ public class MainActivity extends AppCompatActivity {
         result = (TextView) findViewById(R.id.result);
 
     }
+public boolean isInt(String n){
+        if (n == null)
+            return false;
+        else{
+            try {
+                int num = Integer.parseInt(n);
+            }catch (NumberFormatException e){
+                return false;
+            }
+
+        }
+        return true;
+}
 
 // add button to specify if lbp or usd (boolean )
-    public void convertToLBP(View v){
-        boolean flag  ;
+    public void convertToLBP(View v) {
+        //boolean flag  ;
+        String given = addAmount.getText().toString();
+        if (isInt(given)) {
+            int amount = Integer.parseInt(addAmount.getText().toString());
+            results = amount * 22000;
+            String m = (String.valueOf(results)) + "LBP";
+            result.setText(m);
+            Toast.makeText(getApplicationContext(), "lbp", Toast.LENGTH_SHORT).show();
 
- try{
-     int amount =  Integer.parseInt(addAmount.getText().toString());
-     flag = false;
- }
-     catch (NumberFormatException e) {
-     flag  = true;
-
-     }
- if (flag ){
-     results = amount * 22000;
-     String m = (String.valueOf(results)) + "LBP";
-     result.setText(m);
-     Toast.makeText(getApplicationContext(), "lbp", Toast.LENGTH_SHORT).show();
- }
- else{
-     Toast.makeText(getApplicationContext(), "invalid", Toast.LENGTH_SHORT).show();
- }
-
-
+        }
+        else{
+            Toast.makeText(getApplicationContext(), "invalid input", Toast.LENGTH_SHORT).show();
+        }
     }
     public void convertToDollars(View v){
         double amount =  Integer.parseInt(addAmount.getText().toString());
