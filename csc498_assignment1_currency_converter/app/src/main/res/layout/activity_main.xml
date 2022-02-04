@@ -84,7 +84,6 @@
         android:layout_width="156dp"
         android:layout_height="152dp"
         android:alpha="1"
-        android:onClick="show"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -123,7 +122,7 @@
     <TextView
         android:id="@+id/textView3"
         android:layout_width="68dp"
-        android:layout_height="19dp"
+        android:layout_height="34dp"
         android:text="USD"
         app:layout_constraintBottom_toBottomOf="@+id/first"
         app:layout_constraintEnd_toEndOf="@+id/first"

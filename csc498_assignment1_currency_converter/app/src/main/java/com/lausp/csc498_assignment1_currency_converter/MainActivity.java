@@ -13,10 +13,6 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     EditText addAmount1;
     private TextView result;
-    int amount;
-    Button convertToLBP;
-    Button convertToDollars;
-
     double results;
     ImageView money_bag;
     EditText addAmount2;
@@ -32,33 +28,25 @@ public class MainActivity extends AppCompatActivity {
         addAmount1 = (EditText) findViewById(R.id.first);
         money_bag = (ImageView) findViewById(R.id.moneyBag);
         addAmount2 = (EditText) findViewById(R.id.second);
-
-        results =0;
         result = (TextView) findViewById(R.id.result);
+        results =0;
 
     }
-    public void reset(View v){
+    public void show(View v) {// money bag appears 
+        money_bag.animate().alpha(1).setDuration(50);
+        result.setText("");
+
+    }
+    public void reset(View v){ // on click resets to empty
         addAmount2.setText("");
         addAmount1.setText("");
         show(v);
+        result.setText("");
     }
 
 
-    public boolean isInt(String n){
-        if (n == null)
-            return false;
-        else{
-            try {
-                int num = Integer.parseInt(n);
-            }catch (NumberFormatException e){
-                return false;
-            }
 
-        }
-        return true;
-    }
-
-    public boolean isDouble(String n){
+    public boolean isDouble(String n){// to input only digits
         if (n == null)
             return false;
         else{
@@ -73,37 +61,31 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-/** user inputs in dollar box, and presses dollar should show same amount
- * user input dollar an d preses the  lbp amount  should show  calculated amount
- * */
-    // add button to specify if lbp or usd (boolean )
-    public void convertToLBP(View v) {
-        //boolean flag  ;
+
+    public void convertToLBP(View v) {// converts to lbp if digit
+
         String given = addAmount1.getText().toString();
-        if (isInt(given)) {
+        if (isDouble(given)) {
             double amount = Integer.parseInt(addAmount1.getText().toString());
             results = amount * 22000;
             String m = (String.format("%.2f",results)) ;
-            money_bag.animate().alpha(0).setDuration(25);
-            addAmount2.setText(m);
-            result.setText(m);
+            money_bag.animate().alpha(0).setDuration(25);//shows the amount
+            addAmount2.setText(m); //shows amount in lbp edit text
+            result.setText(m); //shows under money bag
             addAmount1.setText("");
+
             Toast.makeText(getApplicationContext(), "successfully converted to lbp", Toast.LENGTH_SHORT).show();
 
         }
         else{
-            Toast.makeText(getApplicationContext(), "invalid input", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_SHORT).show();
         }
-        //
-    }
-    public void show(View v) {
-        money_bag.animate().alpha(1).setDuration(50);
-        result.setText("");
 
     }
 
 
-    public void convertToDollars(View v){
+
+    public void convertToDollars(View v){ //convert to dollars if digit
         String given = addAmount2.getText().toString();
         if (isDouble(given)) {
             double amount = Double.parseDouble(addAmount2.getText().toString());
@@ -111,23 +93,21 @@ public class MainActivity extends AppCompatActivity {
             String m1 = (String.format("%.2f", results)) ;
             money_bag.animate().alpha(0).setDuration(25);
             addAmount1.setText(m1);
-            result.setText(m1);
             addAmount2.setText("");
+            result.setText(m1);
 
 
             Toast.makeText(getApplicationContext(), "successfully converted to $$", Toast.LENGTH_SHORT).show();
         }
         else{
-            Toast.makeText(getApplicationContext(), "invalid input", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_SHORT).show();
         }
 
 
 
 
     }
-    /* add conditions
-     * fix design
-     * double usd only 2 decimals*/
+
 
 
 
