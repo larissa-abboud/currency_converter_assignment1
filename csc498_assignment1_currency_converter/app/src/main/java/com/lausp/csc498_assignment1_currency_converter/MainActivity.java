@@ -2,10 +2,12 @@ package com.lausp.csc498_assignment1_currency_converter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
      Button convertToLBP;
      Button convertToDollars;
      double results;
+     ImageView money_bag;
+
 
 
 
@@ -25,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         addAmount = (EditText) findViewById(R.id.first);
+        money_bag = (ImageView) findViewById(R.id.moneyBag);
 
 
         results =0;
@@ -66,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
             int amount = Integer.parseInt(addAmount.getText().toString());
             results = amount * 22000;
             String m = (String.valueOf(results)) + " LBP";
+            money_bag.animate().alpha(0).setDuration(2000);
+            
             result.setText(m);
             Toast.makeText(getApplicationContext(), "successfully converted to lbp", Toast.LENGTH_SHORT).show();
 
@@ -90,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    }public
+    }
 /* add conditions
 * fix design
 * double usd only 2 decimals*/
