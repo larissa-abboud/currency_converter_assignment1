@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "invalid input", Toast.LENGTH_SHORT).show();
         }
     }
+
     public void convertToDollars(View v){
         String given = addAmount.getText().toString();
         if (isDouble(given)) {
@@ -89,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    }
+    }public
 /* add conditions
 * fix design
 * double usd only 2 decimals*/
