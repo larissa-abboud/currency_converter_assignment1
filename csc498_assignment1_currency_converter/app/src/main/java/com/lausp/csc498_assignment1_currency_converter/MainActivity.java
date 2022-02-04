@@ -91,6 +91,8 @@ public class MainActivity extends AppCompatActivity {
     }
     public void show(View v) {
         money_bag.animate().alpha(1).setDuration(50);
+        result.setText("");
+
     }
 
 
