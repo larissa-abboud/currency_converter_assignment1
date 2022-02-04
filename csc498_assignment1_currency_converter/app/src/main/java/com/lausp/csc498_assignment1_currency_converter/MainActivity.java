@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             int amount = Integer.parseInt(addAmount.getText().toString());
             results = amount * 22000;
             String m = (String.valueOf(results)) + " LBP";
-            money_bag.animate().alpha(0).setDuration(50);
+            money_bag.animate().alpha(0).setDuration(25);
 
 
             result.setText(m);
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
             double amount = Double.parseDouble(addAmount.getText().toString());
             results = ((amount) / 22000);
             String m1 = (String.format("%.2f", results)) + " USD";
-            money_bag.animate().alpha(0).setDuration(50);
+            money_bag.animate().alpha(0).setDuration(25);
             result.setText(m1);
             addAmount.setText("");
             Toast.makeText(getApplicationContext(), "successfully converted to $$", Toast.LENGTH_SHORT).show();

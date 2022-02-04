@@ -58,15 +58,13 @@
         android:id="@+id/result"
         android:layout_width="207dp"
         android:layout_height="42dp"
-        android:layout_marginStart="109dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginStart="200dp"
         android:layout_marginEnd="95dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.343" />
 
     <TextView
         android:id="@+id/textView"
@@ -76,7 +74,7 @@
         android:layout_marginTop="108dp"
         android:layout_marginEnd="148dp"
         android:layout_marginBottom="25dp"
-        android:text="Input the amount in LBP and $$$:"
+        android:text="Input the amount in LBP or $$$:"
         android:textColor="@color/purple_500"
         app:layout_constraintBottom_toTopOf="@+id/first"
         app:layout_constraintEnd_toEndOf="parent"
@@ -87,14 +85,13 @@
         android:id="@+id/moneyBag"
         android:layout_width="156dp"
         android:layout_height="152dp"
-        android:layout_marginTop="76dp"
         android:alpha="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3"
-        app:layout_constraintVertical_bias="0.133"
+        app:layout_constraintVertical_bias="0.109"
         app:srcCompat="@drawable/money_b" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
