@@ -31,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
         result = (TextView) findViewById(R.id.result);
 
     }
-public boolean isInt(String n){
+
+    public boolean isInt(String n){
         if (n == null)
             return false;
         else{
@@ -43,18 +44,30 @@ public boolean isInt(String n){
 
         }
         return true;
-}
+    }
+    public boolean isDouble(String n){
+        if (n == null)
+            return false;
+        else{
+            try {
+                Double num = Double.parseDouble(n);
+            }catch (NumberFormatException e){
+                return false;
+            }
 
-// add button to specify if lbp or usd (boolean )
+        }
+        return true;
+    }
+    // add button to specify if lbp or usd (boolean )
     public void convertToLBP(View v) {
         //boolean flag  ;
         String given = addAmount.getText().toString();
         if (isInt(given)) {
             int amount = Integer.parseInt(addAmount.getText().toString());
             results = amount * 22000;
-            String m = (String.valueOf(results)) + "LBP";
+            String m = (String.valueOf(results)) + " LBP";
             result.setText(m);
-            Toast.makeText(getApplicationContext(), "lbp", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "successfully converted to lbp", Toast.LENGTH_SHORT).show();
 
         }
         else{
@@ -62,11 +75,17 @@ public boolean isInt(String n){
         }
     }
     public void convertToDollars(View v){
-        double amount =  Integer.parseInt(addAmount.getText().toString());
-        results = ((amount )/ 22000);
-        String m1 =(String.format("%.2f",results)) + "USD";
-        result.setText(m1);
-        Toast.makeText(getApplicationContext(), "$$", Toast.LENGTH_SHORT).show();
+        String given = addAmount.getText().toString();
+        if (isDouble(given)) {
+            double amount = Double.parseDouble(addAmount.getText().toString());
+            results = ((amount) / 22000);
+            String m1 = (String.format("%.2f", results)) + " USD";
+            result.setText(m1);
+            Toast.makeText(getApplicationContext(), "successfully converted to $$", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(getApplicationContext(), "invalid input", Toast.LENGTH_SHORT).show();
+        }
 
 
 
