@@ -40,8 +40,6 @@ public class MainActivity extends AppCompatActivity {
     public void reset(View v){
         addAmount2.setText("");
         addAmount1.setText("");
-
-
         show(v);
     }
 
@@ -83,9 +81,9 @@ public class MainActivity extends AppCompatActivity {
         //boolean flag  ;
         String given = addAmount1.getText().toString();
         if (isInt(given)) {
-            int amount = Integer.parseInt(addAmount1.getText().toString());
+            double amount = Integer.parseInt(addAmount1.getText().toString());
             results = amount * 22000;
-            String m = (String.valueOf(results)) ;
+            String m = (String.format("%.2f",results)) ;
             money_bag.animate().alpha(0).setDuration(25);
             addAmount2.setText(m);
             result.setText(m);
