@@ -76,7 +76,7 @@
         android:layout_marginTop="108dp"
         android:layout_marginEnd="148dp"
         android:layout_marginBottom="25dp"
-        android:text="Input the amount in LBP and $$$:"
+        android:text="Input the amount in LBP or $$$:"
         android:textColor="@color/purple_500"
         app:layout_constraintBottom_toTopOf="@+id/first"
         app:layout_constraintEnd_toEndOf="parent"
